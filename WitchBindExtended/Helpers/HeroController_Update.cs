@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using GlobalSettings;
+using HarmonyLib;
 using UnityEngine;
 using WitchBindExtended.Settings;
 
@@ -10,7 +11,13 @@ namespace WitchBindExtended.Helpers
         [HarmonyPostfix]
         public static void Postfix(HeroController __instance)
         {
-            if (SharedData.modifierApplied == ConfigSettings.multiplier.Value)
+            float modifier = ConfigSettings.multiplier.Value;
+            if (Gameplay.LongNeedleTool.IsEquipped)
+            {
+                modifier = ConfigSettings.longclawMultiplier.Value;
+            }
+
+            if (SharedData.modifierApplied == modifier)
             {
                 return;
             }
@@ -46,13 +53,13 @@ namespace WitchBindExtended.Helpers
                         gameObject.transform.localScale /= SharedData.modifierApplied;
 
                         // Then, apply the new multiplier
-                        gameObject.transform.localScale *= ConfigSettings.multiplier.Value;
+                        gameObject.transform.localScale *= modifier;
                         //WitchBindExtended.Instance.Log($"{gameObject.name} : {oldScale} -> {gameObject.transform.localScale}");
                     }
                 }
             }
 
-            SharedData.modifierApplied = ConfigSettings.multiplier.Value;
+            SharedData.modifierApplied = modifier;
         }
     }
 }

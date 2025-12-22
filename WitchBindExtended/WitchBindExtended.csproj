@@ -57,10 +57,15 @@
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>$(DllPath)\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>$(DllPath)\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="TeamCherry.Localization">
+      <HintPath>$(DllPath)\TeamCherry.Localization.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="../README.md" Pack="True" PackagePath="README.md" Link="Deployment\README.md" />
-    <None Include="../thunderstore/icon.png" Pack="True" PackagePath="icon.png" Link="Deployment\icon.png" />
     <None Include="..\.github\workflows\build-publish.yml" Link="Deployment\build-publish.yml" />
     <None Include="..\CHANGELOG.md" Link="Deployment\CHANGELOG.md" />
     <None Include="..\Directory.Build.props" Link="Deployment\Directory.Build.props" />

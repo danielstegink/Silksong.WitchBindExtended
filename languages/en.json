@@ -1,4 +1,6 @@
 {
 	"NAME": "Multiplier",
-	"DESC": "How much to enlarge Witch Crest's tentacles"
+	"DESC": "How much to enlarge Witch Crest's tentacles",
+	"LN_NAME": "Longclaw Multiplier",
+	"LN_DESC": "How much to enlarge Witch Crest's tentacles with Longclaw equipped"
 }
